@@ -52,18 +52,26 @@ const checkAdmin = async (req, res, next) => {
    
 
 
-        const admin = await userModel.findOne({ where: { email: decoded.email } })
-        console.log(admin)
+        const user = await userModel.findOne({ where: { email: decoded.email } })
+
+        console.log(user)
 
 
         console.log(decoded.userPassword)
-        if (!admin) {
+        if (user.email !== "manBar@gmail.com") {
             return res.status(401).json({
                 message: "Unauthorized",
             })
         }
+        if (user.email == "manBar@gmail.com") {
 
-        req.user = admin;
+            req.user = user;
+           
+           
+
+        }
+
+        
 
    
 
