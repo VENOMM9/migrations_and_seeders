@@ -1,3 +1,4 @@
+
 const { Sequelize, DataTypes } = require("sequelize")
 const sequelize = require("../config/sequelize")
 const bcrypt = require("bcrypt")
@@ -14,13 +15,12 @@ const User = sequelize.define(
         autoIncrement:true,
         type: Sequelize.INTEGER,
         unique: true,
-        foreignKey:true
 
 
       },
-      name: {
+      names: {
         type: DataTypes.STRING,
-        allowNull: false,
+        
         unique: true,
 
       },
@@ -86,6 +86,40 @@ module.exports = User
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 'use strict';
 // const {
 //   Model
@@ -102,7 +136,7 @@ module.exports = User
 //     }
 //   }
 //   users.init({
-//     name: DataTypes.STRING,
+//     names: DataTypes.STRING,
 //     email: DataTypes.STRING,
 //     password: DataTypes.STRING
 //   }, {

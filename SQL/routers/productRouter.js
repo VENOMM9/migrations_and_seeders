@@ -8,7 +8,7 @@ const productRouter = express.Router();
 productRouter.post(
   "/products",
   middlewear.validateProduct,
-  
+  globalMiddlewear.checkAdmin,
   controller.createProduct
 );
 productRouter.get(
@@ -17,7 +17,7 @@ productRouter.get(
   controller.getAllProduct
 );
 productRouter.get(
-  "/:_id",
+  "/:id",
   globalMiddlewear.authenticateUser,
   controller.getOneProduct
 );

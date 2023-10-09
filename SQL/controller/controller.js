@@ -1,7 +1,7 @@
 
-const userModel = require("../model/users")
-const adminModel = require("../model/admins")
-const productModel = require("../model/products")
+const userModel = require("../models/users")
+const adminModel = require("../models/admins")
+const productModel = require("../models/products")
 
 
 const jwt = require("jsonwebtoken")
@@ -12,7 +12,6 @@ require('dotenv').config()
 
 const createUser = async (req, res) => {
     const createUserProfile = req.body
-    console.log(createUserProfile)
 
     const existingUser = await userModel.findOne({
         where: { email: createUserProfile.email }
@@ -27,7 +26,7 @@ const createUser = async (req, res) => {
     };
 
     const user = await userModel.create({
-        name: createUserProfile.name,
+        names: createUserProfile.names,
         email: createUserProfile.email,
         password: createUserProfile.password,
         
@@ -49,7 +48,6 @@ const createUser = async (req, res) => {
 
 const createAdmin = async (req, res) => {
     const createAdminProfile = req.body
-    console.log(createAdminProfile )
 
     const existingAdmin = await adminModel.findOne({
         where: { email: createAdminProfile .email }
@@ -64,7 +62,7 @@ const createAdmin = async (req, res) => {
     };
 
     const admin = await adminModel.create({
-        name: createAdminProfile .name,
+        names: createAdminProfile .name,
         email: createAdminProfile .email,
         password: createAdminProfile.password,
         users_id: createAdminProfile .users_id
@@ -89,10 +87,9 @@ const createAdmin = async (req, res) => {
 
 const createProduct = async (req, res) => {
     const createProductProfile = req.body
-    console.log(createProductProfile)
 
     const existingProduct = await productModel.findOne({
-        where: { email: createProductProfile.email }
+        where: { names: createProductProfile.names }
 
     });
     
@@ -104,7 +101,7 @@ const createProduct = async (req, res) => {
     };
 
     const product = await productModel.create({
-        name: createProductProfile.name,
+        names: createProductProfile.names,
         size: createProductProfile.size,
         price: createProductProfile.price,
         category: createProductProfile.category

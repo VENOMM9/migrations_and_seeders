@@ -1,5 +1,5 @@
-const userModel = require("../model/users");
-const adminModel = require("../model/admins");
+const userModel = require("../models/users");
+const adminModel = require("../models/admins");
 
 const jwt = require("jsonwebtoken")
 
@@ -52,10 +52,9 @@ const checkAdmin = async (req, res, next) => {
    
 
 
-        const admin = await adminModel.findOne({ where: { email: decoded.email } })
+        const admin = await userModel.findOne({ where: { email: decoded.email } })
         console.log(admin)
 
-        const adminPassword = await adminModel.findOne({ where: { password: decoded.password } })
 
         console.log(decoded.userPassword)
         if (!admin) {
@@ -64,7 +63,7 @@ const checkAdmin = async (req, res, next) => {
             })
         }
 
-        req.admin = admin;
+        req.user = admin;
 
    
 

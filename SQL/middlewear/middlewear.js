@@ -3,10 +3,10 @@ const joi = require("joi")
 const validateCreateUser = async (req, res, next) => {
     try {
         const schema = joi.object({
-            name: joi.string().empty().required().messages({
-                "string.base": `"name" must be of type "text"`,
-                "string.empty": `"name" cannot be empty`,
-                "string.required": `"name" is required`,
+            names: joi.string().empty().required().messages({
+                "string.base": `"names" must be of type "text"`,
+                "string.empty": `"names" cannot be empty`,
+                "string.required": `"names" is required`,
             }),
             email: joi.string().empty().email().required().messages({
                 "string.base": `"email" must be of type "text"`,
@@ -33,10 +33,10 @@ const validateCreateUser = async (req, res, next) => {
 const validateCreateAdmin= async (req, res, next) => {
     try {
         const adminSchema = joi.object({
-            name: joi.string().empty().required().messages({
-                "string.base": `name" must be of type "text"`,
-                "string.empty": `"name" cannot be empty`,
-                "string.required": `"name" is required`,
+            names: joi.string().empty().required().messages({
+                "string.base": `names" must be of type "text"`,
+                "string.empty": `"names" cannot be empty`,
+                "string.required": `"names" is required`,
             }),
             email: joi.string().empty().email().required().messages({
                 "string.base": `"email" must be of type "text"`,
@@ -102,10 +102,10 @@ const validateLogin = async (req, res, next) => {
 const validateProduct = async (req, res, next) => {
     try {
         const ProductSchema = joi.object({
-            name: joi.string().empty().required().messages({
-                "string.base": `"name" must be of type "text"`,
-                "string.empty": `"name" cannot be empty`,
-                "string.required": `"name" is required`,
+            names: joi.string().empty().required().messages({
+                "string.base": `"names" must be of type "text"`,
+                "string.empty": `"names" cannot be empty`,
+                "string.required": `"names" is required`,
             }),
             size: joi.string().empty().required().messages({
                 "string.base": `"size" must be of type "text"`,
