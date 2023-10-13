@@ -7,7 +7,7 @@ const {connectionToMongodb}  = require("./db/connect")
 
 
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3700
 const app = express();
 app.use(express.json())
 

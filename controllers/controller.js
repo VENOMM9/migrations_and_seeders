@@ -50,7 +50,7 @@ const createProduct = async (req, res) => {
     console.log(createProductProfile)
 
     const existingProduct = await productModel.findOne({
-        email: createProductProfile.email
+        name: createProductProfile.name
 
     });
     
